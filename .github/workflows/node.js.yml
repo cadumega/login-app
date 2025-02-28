@@ -43,5 +43,5 @@ jobs:
       with:
         working-directory: ./tests
         wait-on: 'http://localhost:3000'
-        spec: "**/*.spec.{js,jsx,ts,tsx}" 
+        spec: "**/*.cy.{js,jsx,ts,tsx}"
         browser: chrome
