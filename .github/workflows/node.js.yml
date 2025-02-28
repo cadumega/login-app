@@ -30,9 +30,13 @@ jobs:
     - name: List directories
       run: ls -al
       
-    - name: Install Cypress
-      run: npm install cypress --save-dev
-      working-directory: ./
+    - name: Install Cypress dependencies
+      working-directory: ./tests
+      run: npm ci
+
+    - name: Start Next.js server
+      run: npm start
+      working-directory: ./ # Garante que o npm start seja executado na raiz do projeto
 
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
