@@ -41,6 +41,6 @@ jobs:
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
       with:
-        working-directory: ./tests/1-getting-started
+        working-directory: ./tests
         wait-on: 'http://localhost:3000'
         browser: chrome
