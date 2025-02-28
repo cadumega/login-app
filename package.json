@@ -23,7 +23,8 @@
     "@eslint/eslintrc": "^3"
   },
   "scripts": {
-  "dev": "next dev",
-  "build": "next build --no-lint",
-  "start": "next start"
+    "dev": "next dev",
+    "build": "next build --no-lint",
+    "start": "next start"
+}
 }
