@@ -33,6 +33,6 @@ jobs:
       uses: cypress-io/github-action@v6
       with:
         start: npm start
-        working-directory: ./tests/cypress/e2e/1-getting-started
+        working-directory: ./e2e/1-getting-started
         wait-on: 'http://localhost:3000'
         browser: chrome
