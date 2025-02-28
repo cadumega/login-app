@@ -60,7 +60,7 @@ export default function Login() {
       </form>
       
       <p>
-        Don't have an account? <Link href="/register">Register</Link>
+        Don&apos;t have an account? <Link href="/register">Register</Link>
       </p>
       
       <style jsx>{`
