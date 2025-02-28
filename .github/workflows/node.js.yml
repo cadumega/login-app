@@ -31,6 +31,5 @@ jobs:
       uses: cypress-io/github-action@v6
       with:
         working-directory: ./tests
-        start: npm start
         wait-on: 'http://localhost:3000'
         browser: chrome
