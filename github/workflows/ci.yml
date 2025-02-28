@@ -2,7 +2,7 @@ name: Next.js Login CI
 
 on:
   push:
-    branches: [ main, master ]
+https://github.com/cadumega/login-app/actions/new    branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
 
