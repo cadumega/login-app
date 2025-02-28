@@ -32,7 +32,6 @@ jobs:
       with:
         working-directory: ./login-app
         start: npm start
-        run: npx cypress run
         wait-on: 'http://localhost:3000'
         browser: chrome
 
