@@ -3,9 +3,10 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-export default function Login() {
+export default function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
 
@@ -13,23 +14,24 @@ export default function Login() {
     e.preventDefault();
     
     // Simple validation
-    if (!username || !password) {
+    if (!username || !password || !confirmPassword) {
       setError('Please fill in all fields');
       return;
     }
     
-    // Simple login logic (for testing)
-    if (username === 'admin' && password === 'admin123') {
-      // Successful login
-      router.push('/dashboard');
-    } else {
-      setError('Incorrect username or password');
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
     }
+    
+    // In a real application, would send data to a backend
+    // Here, we just redirect to simulate success
+    router.push('/');
   };
 
   return (
-    <div className="login-container">
-      <h1>Login</h1>
+    <div className="register-container">
+      <h1>Register</h1>
       
       {error && <div className="error-message">{error}</div>}
       
@@ -39,7 +41,7 @@ export default function Login() {
           <input
             type="text"
             id="username"
-            data-testid="username"
+            data-testid="reg-username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -50,21 +52,32 @@ export default function Login() {
           <input
             type="password"
             id="password"
-            data-testid="password"
+            data-testid="reg-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         
-        <button type="submit" data-testid="login-button">Sign In</button>
+        <div className="form-group">
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            data-testid="reg-confirm"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+        
+        <button type="submit" data-testid="register-button">Register</button>
       </form>
       
       <p>
-        Don't have an account? <Link href="/register">Register</Link>
+        Already have an account? <Link href="/">Login</Link>
       </p>
       
       <style jsx>{`
-        .login-container {
+        .register-container {
           max-width: 400px;
           margin: 100px auto;
           padding: 20px;
@@ -104,7 +117,7 @@ export default function Login() {
         button {
           width: 100%;
           padding: 10px;
-          background-color: #007bff;
+          background-color: #28a745;
           color: white;
           border: none;
           border-radius: 4px;
@@ -112,7 +125,7 @@ export default function Login() {
         }
         
         button:hover {
-          background-color: #0069d9;
+          background-color: #218838;
         }
         
         p {
