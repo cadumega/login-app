@@ -20,4 +20,10 @@
     "eslint-config-next": "15.2.0",
     "@eslint/eslintrc": "^3"
   }
+
+  "scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start"
+}
 }
