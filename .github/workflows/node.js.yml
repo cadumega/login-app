@@ -34,12 +34,3 @@ jobs:
         start: npm start
         wait-on: 'http://localhost:3000'
         browser: chrome
-
-    - name: Upload Cypress results
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: cypress-results
-        path: |
-          cypress/videos
-          cypress/screenshots
