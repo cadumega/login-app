@@ -34,10 +34,10 @@ jobs:
       working-directory: ./tests
       run: npm ci
 
-    - name: Start Next.js server
-      run: npm start
-      working-directory: ./ # Garante que o npm start seja executado na raiz do projeto
-
+    - name: Start Next.js server (background)
+      run: npm run start &
+      working-directory: ./
+        
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
       with:
