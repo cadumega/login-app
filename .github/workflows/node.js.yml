@@ -11,26 +11,42 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18.x'
-        
-    - name: Install dependencies
+    
+    # Install dependencies for the main Next.js app
+    - name: Install Next.js dependencies
       run: npm ci
       
     - name: Build Next.js app
       run: npm run build
+    
+    # Start the Next.js server
+    - name: Start Next.js app
+      run: npm start &
       
-    - name: Install Cypress
-      run: npm install cypress --save-dev
-      
+    # Wait for the app to be available
+    - name: Wait for app to be ready
+      run: |
+        npm install -g wait-on
+        wait-on http://localhost:3000 -t 60000
+    
+    # Run Cypress tests directly instead of using the GitHub Action
     - name: Run Cypress tests
-      uses: cypress-io/github-action@v6
+      run: |
+        cd tests
+        npm ci  # Install dependencies in the tests directory if there's a package.json there
+        npx cypress run
+    
+    # Capture Cypress results
+    - name: Upload Cypress results
+      uses: actions/upload-artifact@v3
+      if: always()
       with:
-        start: npm start
-        working-directory: ./login-app/tests
-        wait-on: 'http://localhost:3000'
-        browser: chrome
+        name: cypress-results
+        path: tests/cypress/videos
