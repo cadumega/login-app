@@ -24,6 +24,9 @@ jobs:
     - name: Build Next.js app
       run: npm run build
       
+    - name: Install Cypress
+      run: npm install cypress --save-dev
+      
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
       with:
