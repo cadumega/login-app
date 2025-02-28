@@ -30,7 +30,6 @@ jobs:
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
       with:
-        working-directory: ./login-app
         start: npm start
         wait-on: 'http://localhost:3000'
         browser: chrome
