@@ -26,11 +26,12 @@ jobs:
       
     - name: Install Cypress
       run: npm install cypress --save-dev
-      working-directory: ./tests # ou o diretorio que contem o cypress run: npm ci
-      
+      working-directory: ./test
+
     - name: Run Cypress tests
-      uses: cypress-io/github-action@v6 
-      with: 
-	start: npm start
-        working-directory: ./tests
-	wait-on: 'http://localhost:3000'
+      uses: cypress-io/github-action@v6
+      with:
+        start: npm start
+        working-directory: ./test
+        wait-on: 'http://localhost:3000'
+        browser: chrome
