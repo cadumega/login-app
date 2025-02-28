@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Clear npm cache
+      run: npm cache clean --force
+        
     - uses: actions/checkout@v3
     
     - name: Use Node.js
@@ -29,7 +32,7 @@ jobs:
       
     - name: Install Cypress
       run: npm install cypress --save-dev
-      working-directory: ./tests
+      working-directory: ./
 
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
