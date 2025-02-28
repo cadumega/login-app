@@ -20,7 +20,7 @@
     "eslint-config-next": "15.2.0",
     "tailwindcss": "^4",
     "wait-on": "^8.0.2"
-  }
+  },
     "@eslint/eslintrc": "^3"
   },
 
