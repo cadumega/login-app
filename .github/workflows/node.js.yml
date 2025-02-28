@@ -24,18 +24,11 @@ jobs:
     - name: Build Next.js app
       run: npm run build
       
-    - name: Start Next.js app
-      run: npm start &
-      
-    - name: Wait for app to start
-      run: npx wait-on http://localhost:3000
+    - name: Install Cypress
+      run: npm install cypress --save-dev
       
     - name: Run Cypress tests
-      run: npx cypress run
-      
-    - name: Upload Cypress videos
-      uses: actions/upload-artifact@v3
-      if: always()
+      uses: cypress-io/github-action@v6
       with:
-        name: cypress-videos
-        path: cypress/videos
+        start: npm start
+        wait-on: 'http://localhost:3000'
