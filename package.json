@@ -18,7 +18,18 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
+<<<<<<< HEAD
     "tailwindcss": "^4",
     "wait-on": "^8.0.2"
   }
+=======
+    "@eslint/eslintrc": "^3"
+  },
+
+  "scripts": {
+  "dev": "next dev",
+  "build": "next build --no-lint",
+  "start": "next start"
+}
+>>>>>>> cadutest
 }
