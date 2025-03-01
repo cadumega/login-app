@@ -121,7 +121,7 @@ Cypress.Commands.add('loginWithCredentialsFromEnv', () => {
 - **Server readiness:** Use `wait-on: 'http://localhost:3000'` to ensure tests run only when the server is ready.
 - **Correct test pattern:** Use `spec: "**/*.cy.{js,jsx,ts,tsx}"` to match test files.
 
-#### CI/CD Workflow (`.github/workflows/ci.yml`):
+#### CI/CD Workflow (`.github/workflows/node.js.yml`):
 
 ```yaml
 name: Next.js Login Tests
