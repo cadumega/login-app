@@ -23,8 +23,7 @@ describe('Login Functionality', () => {
     });
   
     it('should login successfully', () => {
-      cy.get('[data-testid="username"]').type('admin');
-      cy.get('[data-testid="password"]').type('admin123');
+      cy.loginWithCredentialsFromEnv();
       cy.get('[data-testid="login-button"]').click();
       
       // Verify redirect to dashboard

@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QA Engineer Coding Exercise - ReadMe
 
-## Getting Started
+## Overview
+This project is a **Next.js** application with a simple **login system** ,
+and an automated **test suite using Cypress**. 
+The CI/CD pipeline is configured with **GitHub Actions** to ensure continuous integration and testing.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📌 Key Features
+- **Next.js login application** with a dashboard and registration page.
+- **Cypress end-to-end tests** for login and registration flows.
+- **Custom Cypress commands** for maintainable tests.
+- **GitHub Actions CI/CD pipeline** for automated testing.
+
+---
+
+## 📋 Test Plan
+### 🔹 Scope
+- **Login functionality**
+- **Dashboard access after login**
+- **User registration**
+- **Error handling (incorrect credentials, missing fields, etc.)**
+
+### 🔹 Tools Used
+- **Cypress** for UI testing
+- **GitHub Actions** for CI/CD automation
+
+### 🔹 Custom Cypress Commands
+- `cy.fillPasswordField(password)` → Fills the password field.
+- `cy.loginWithCredentialsFromEnv()` → Logs in using credentials from Cypress environment variables.
+
+---
+
+## 🛠️ Project Structure
+```
+/src                 # Next.js source code
+/app                 # Pages (login, dashboard, register)
+/tests               # Cypress test suite
+/cypress/e2e         # End-to-end test files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 How to Clone and Run the Project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔹 Clone the Repository
+```sh
+git clone https://github.com/cadumega/login-app.git
+cd login-app
+```
 
-## Learn More
+### 🔹 Install Dependencies
+```sh
+npm install  # Install dependencies for the Next.js application
+cd tests
+npm install  # Install Cypress dependencies
+cd ..
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 🔹 Run the Application
+```sh
+npm run dev  # Start Next.js server
+```
+Access it at: **http://localhost:3000**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔹 Run Cypress Tests
+```sh
+cd tests
+npx cypress open  # Run tests in UI mode
+# OR
+npx cypress run  # Run tests in headless mode
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔄 CI/CD Pipeline
+### 🔹 GitHub Actions Workflow
+- Runs tests on **push** and **pull requests** to the `main` branch.
+- Runs **daily at midnight UTC** via a scheduled job.
+- Uses **Ubuntu-latest** as the runner.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🔹 Main Steps
+1. **Check out code** from GitHub.
+2. **Set up Node.js** (version 18.x).
+3. **Install dependencies**.
+4. **Build the Next.js application**.
+5. **Start Next.js server in the background**.
+6. **Run Cypress tests in Chrome browser**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📌 Environment Variables
+- **Username:** `admin`
+- **Password:** `admin123`
+
+---
+
+This ReadMe provides a quick overview of the application, test plan, CI/CD process, and setup steps. 🚀
+
