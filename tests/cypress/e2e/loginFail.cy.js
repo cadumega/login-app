@@ -33,8 +33,8 @@ describe('Login Functionality', () => {
   
     it('should logout successfully', () => {
       // Login first
-      cy.get('[data-testid="username"]').type('admin');
-      cy.get('[data-testid="password"]').type('admin123');
+      cy.get('[data-testid="username"]').type('xxxx');
+      cy.get('[data-testid="password"]').type('xxxx');
       cy.get('[data-testid="login-button"]').click();
       
       // Logout
