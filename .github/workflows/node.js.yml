@@ -64,11 +64,5 @@ jobs:
           name: cypress-videos
           path: tests/cypress/videos
 
-    - name: Debug - List screenshots directory
-      run: ls -al tests/cypress/screenshots
-
-    - name: Debug - List videos directory
-      run: ls -al tests/cypress/videos
-
     - name: Wait for files (debug)
       run: sleep 5
