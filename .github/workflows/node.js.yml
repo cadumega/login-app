@@ -49,3 +49,17 @@ jobs:
         wait-on: 'http://localhost:3000'
         spec: "**/*.cy.{js,jsx,ts,tsx}"
         browser: chrome
+
+    - name: Upload test screenshots if tests fail
+      uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          
+    - name: Upload test videos
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+          name: cypress-videos
+          path: cypress/videos
