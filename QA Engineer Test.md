@@ -129,43 +129,45 @@ name: Next.js Login Tests
 on:
   push:
     branches: [ main ]
+
   pull_request:
     branches: [ main ]
+
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+    - cron: '0 0 * * *'
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Clear npm cache
       run: npm cache clean --force
-    
+        
     - uses: actions/checkout@v3
     
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18.x'
-    
+        
     - name: Install dependencies
       run: npm ci
-    
+      
     - name: Build Next.js app
       run: npm run build
-    
+
     - name: List directories
       run: ls -al
-    
+      
     - name: Install Cypress dependencies
       working-directory: ./tests
       run: npm ci
-    
-    - name: Start Next.js server in the background
-      working-directory: ./
+
+    - name: Start Next.js server (background)
       run: npm run start &
-    
+      working-directory: ./
+        
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
       with:
@@ -173,6 +175,29 @@ jobs:
         wait-on: 'http://localhost:3000'
         spec: "**/*.cy.{js,jsx,ts,tsx}"
         browser: chrome
+
+    - name: Upload test screenshots if tests fail
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+          name: cypress-screenshots
+          path: tests/cypress/screenshots
+          
+    - name: Upload test videos
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+          name: cypress-videos
+          path: tests/cypress/videos
+
+    - name: Debug - List screenshots directory
+      run: ls -al tests/cypress/screenshots
+
+    - name: Debug - List videos directory
+      run: ls -al tests/cypress/videos
+
+    - name: Wait for files (debug)
+      run: sleep 5
 ```
 
 ### 5. Running the Project and Tests

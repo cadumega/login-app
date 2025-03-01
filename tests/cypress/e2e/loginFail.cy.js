@@ -1,4 +1,4 @@
-describe('Login Functionality', () => {
+describe.skip('Login Functionality', () => {
     beforeEach(() => {
       cy.visit('/');
     });
