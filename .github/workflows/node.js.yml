@@ -55,11 +55,20 @@ jobs:
       if: failure()
       with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: tests/cypress/screenshots
           
     - name: Upload test videos
       uses: actions/upload-artifact@v4
-      if: always()
+      if: failure()
       with:
           name: cypress-videos
-          path: cypress/videos
+          path: tests/cypress/videos
+
+    - name: Debug - List screenshots directory
+      run: ls -al tests/cypress/screenshots
+
+    - name: Debug - List videos directory
+      run: ls -al tests/cypress/videos
+
+    - name: Wait for files (debug)
+      run: sleep 5
