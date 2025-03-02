@@ -15,6 +15,7 @@ I improved the Github actions CI/CD code so that it collects evidence that makes
 - qaEngineerTest.md - It's a general operational documentation, explaning step by step 
 - testPlan.md - I put the test cases that I covered and I can create
 - README.md - Summarize all keypoints of this project, and how to run the project locally
+- images of important details in the project
 
 ---
 
