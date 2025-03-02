@@ -4,7 +4,6 @@
 #exercise #qa #cd/ci #github
 
 https://github.com/cadumega/login-app/actions
-
 ![[Pasted image 20250301161323.png]]
 
 https://whimsical.com/qa-bio-RiPKpJTxFjjaAHhsfXmdXx@FNpptVQ1B1cSwK6LQJkt18hTTotbb
@@ -21,7 +20,9 @@ https://whimsical.com/qa-bio-RiPKpJTxFjjaAHhsfXmdXx@FNpptVQ1B1cSwK6LQJkt18hTTotb
 ## Reference: Tests
 ### 1. Create a Simple Standard Login Feature with Next.js
 
-To execute these tests, a standard login feature will be created using Next.js. The implementation was supported by Claude 3.7 Sonnet AI and Gemini for additional insights.
+To execute these tests, a standard login feature will be created using Next.js. to help me I used some AI tools like Claude 3.7 Sonnet AI and Gemini for additional insights and overcome some problems.
+I created some commands to make it easier to maintain the script code in Cypress automation, of course in a summarized way, following the test Plan.
+I improved the Github actions CI/CD code so that it collects evidence that makes it easier for me to identify where the problem is.
 
 #### Steps to Set Up Next.js Application:
 

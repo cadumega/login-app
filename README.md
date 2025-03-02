@@ -5,6 +5,17 @@ This project is a **Next.js** application with a simple **login system** ,
 and an automated **test suite using Cypress**. 
 The CI/CD pipeline is configured with **GitHub Actions** to ensure continuous integration and testing.
 
+"
+To execute these tests, a standard login feature will be created using Next.js. to help me I used some AI tools like Claude 3.7 Sonnet AI and Gemini for additional insights and overcome some problems.
+I created some commands to make it easier to maintain the script code in Cypress automation, of course in a summarized way, following the test Plan.
+I improved the Github actions CI/CD code so that it collects evidence that makes it easier for me to identify where the problem is.
+"
+
+## Documentation:
+qaEngineerTest.md - It's a general operational documentation, explaning step by step 
+testPlan.md - I put the test cases that I covered and I can create
+README.md - Summarize all keypoints of this project, and how to run the project locally
+
 ---
 
 ## 📌 Key Features
